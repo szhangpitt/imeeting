@@ -10,7 +10,7 @@ $(document).ready(function() {
       return new webkitSpeechRecognition();
     } else {
       console.error('no SpeechRecognition supported!');
-      return null;
+      return {};
     }
   }
 
