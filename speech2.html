@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>speech test</title>
+
+</head>
+
+<body>
+    <form action="http://www.google.com/search">
+        <input type="search" id="q" name="q" size=60>
+        <input id="submit-button" type="button" value="Click to Speak">
+    </form>
+</body>
+
+</html>
+<script src="jquery-1.10.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var GetRecognition = function() {
+            if (typeof speechRecognition !== 'undefined') {
+                return new speechRecognition();
+            } else if (typeof msSpeechRecognition !== 'undefined') {
+                return new msSpeechRecognition();
+            } else if (typeof mozSpeechRecognition !== 'undefined') {
+                return new mozSpeechRecognition();
+            } else if (typeof webkitSpeechRecognition !== 'undefined') {
+                return new webkitSpeechRecognition();
+            } else {
+                console.error('no SpeechRecognition supported!');
+                return null;
+            }
+        }
+        
+        var recognition = GetRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.lang = 'en-GB';
+        
+        var interimTranscript = '';
+        var finalTranscript = '';
+        recognition.onresult = function(event) {
+            interimTranscript = '';
+            
+            for (var i = event.resultIndex; i < event.results.length; i++){
+                if(event.results[i].isFinal){
+                    finalTranscript += event.results[i][0].transcript;    
+                    console.log('onresult - finalTranscript: ' + finalTranscript);
+                }
+                else{
+                    interimTranscript += event.results[i][0].transcript;
+                    console.log('onresult - interimTranscript: ' + interimTranscript);
+                }
+            }
+            
+            if (finalTranscript.length > 0) {
+                q.value = finalTranscript;
+                recognition.stop;
+                recognizing = false;
+                console.log('onresult - recognizing: ' + recognizing);
+            }
+        }
+        
+        recognition.onend = function(event){
+            recognizing = false;            
+            console.log('onend - recognizing: ' + recognizing);
+        }
+        
+        var recognizing = false;
+        $('#submit-button').on('click', function(e){
+            if(!recognizing){
+                recognition.start();
+                recognizing = true;
+                console.log('onclick - recognizing: ' + recognizing);
+            }
+            else{
+                recognition.stop();
+                recognizing = false;
+                console.log('onclick - recognizing: ' + recognizing);
+            }
+            
+        });
+
+        
+
+
+
+    });
+</script>
