@@ -5,7 +5,7 @@ $(document).ready(function(e){
 
 	$('#what-i-say').focus(); 
 
-	injectRooms();
+	//injectRooms();
 
 	function injectRooms(){
 		$('#what-i-have ul').empty();

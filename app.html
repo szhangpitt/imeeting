@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en" ng-app="imeeting">
 <head>
 	<meta charset="UTF-8">
 	<title>Book a room!</title>
-	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+	<meta name="viewport" content="initial-scale = 1.0,maximum-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/icons/style.css">
 </head>
@@ -31,14 +31,18 @@
 				<p>&nbsp;</p>
 			</section>
 		</div>
-		<div id="what-i-have">
-			<h3>I have these rooms for you </h3>
+		<div id="what-i-have" ng-controller="roomDataController">
+			<h3>I have {{rooms.length}} rooms for you </h3>
 			<ul>
-				
+				<li ng-repeat="r in rooms" data-id="room-{{r.name}}"><img ng-src="assets/room_{{r.name | dasherize}}.jpg" /><span>{{r.name}}, on {{r.floor | orderize}} floor, capacity: {{r.capacity}}</span></li>
 			</ul>
 		</div>
 	</div>
 	
 </body>
+<!-- <script src="https://code.angularjs.org/1.2.19/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.2.19/angular-route.min.js"></script> -->
 <script src="js/lib.js"></script>
 <script src="js/frontend.js"></script>
+<script src="js/coffeejs.js"></script>
+</html>
