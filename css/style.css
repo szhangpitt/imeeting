@@ -1,0 +1,86 @@
+/* @mixin transition($property, $duration, $easing:"", $delay:""){
+	-webkit-transition: $property $duration unquote($easing), unquote($delay);
+	-moz-transition: $property $duration unquote($easing), unquote($delay);
+	-ms-transition: $property $duration unquote($easing), unquote($delay);
+	-o-transition: $property $duration unquote($easing), unquote($delay);
+	transition: $property $duration unquote($easing), unquote($delay);
+}
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none; }
+
+body, input, textarea {
+  font-family: Consolas, monaco, monospace;
+  background: #fff;
+  color: #333; }
+
+textarea {
+  font-size: 1.2em;
+  padding: 0.4em;
+  width: 100%;
+  height: 2em;
+  resize: none;
+  overflow: hidden; }
+
+section {
+  margin: 1em 0; }
+
+h3 {
+  margin: 0.3em 0; }
+
+img {
+  max-width: 100%; }
+
+.wrapper {
+  width: 100%;
+  padding: 1em; }
+  .wrapper .mic-icon {
+    color: #333;
+    position: absolute;
+    right: 1.5em;
+    line-height: 2.4em; }
+
+.recording .mic-icon {
+  color: red; }
+.recording textarea:focus {
+  outline-color: red; }
+
+.hidden {
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+#what-i-have ul {
+  overflow: auto; }
+  #what-i-have ul li {
+    max-width: 50%;
+    float: left;
+    padding: 0.5em;
+    position: relative; }
+    @media only screen and (max-width: 480px) {
+      #what-i-have ul li {
+        max-width: 100%; } }
+    @media only screen and (min-width: 481px) and (max-width: 720px) {
+      #what-i-have ul li {
+        max-width: 50%; } }
+    @media only screen and (min-width: 921px) {
+      #what-i-have ul li {
+        max-width: 33.33333%; } }
+    #what-i-have ul li span {
+      color: white;
+      background: rgba(0, 0, 0, 0.4);
+      display: block;
+      min-height: 2.4em;
+      position: absolute;
+      bottom: 0.7em;
+      right: 0.5em;
+      left: 0.5em;
+      padding: 0.5em; }
