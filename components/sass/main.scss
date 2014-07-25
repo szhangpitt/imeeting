@@ -1,3 +1,21 @@
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../assets/bootstrap/fonts/glyphicons-halflings-regular.eot');
+  src: url('../assets/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../assets/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../assets/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../assets/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+
+
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
+
+$btn-nav-color: white;
+$btn-nav-bg: rgba(0,0,0,0);
+$btn-nav-border: rgba(0,0,0,0);
+.btn-nav {
+  @include button-variant($btn-nav-color, $btn-nav-bg, $btn-nav-border);
+} 
+
+
 $breakSmall: 480px;
 $breakMedium: 720px;
 $breakLarge: 920px;
@@ -25,6 +43,7 @@ $breakLarge: 920px;
 $bgColor: #fff;
 $fontFamily: Consolas, monaco, monospace;
 $fontColor: #333;
+$themeColor: rgba(59, 89, 152, 1);
 
 /* @mixin transition($property, $duration, $easing:"", $delay:""){
 	-webkit-transition: $property $duration unquote($easing), unquote($delay);
@@ -74,10 +93,33 @@ img{
 	max-width: 100%;
 }
 
+.s-header{
+  color: white;
+  overflow: hidden;
+  background-color: $themeColor;
+  
+  .s-btn-left{
+    float: left !important;
+  }
+  .s-btn-right{
+    float: right !important;
+  }
+  
+  h3{
+    width:100%;
+    text-align: center;
+    position: absolute;
+    margin: 0.4em 0;
+  }
+}
+
+.s-inline-block{
+  display: inline-block !important;
+}
 
 .wrapper{
 	width: 100%;
-	padding: 1em;
+	/*padding: 1em;*/
 
 	.mic-icon{
 		color: $fontColor;

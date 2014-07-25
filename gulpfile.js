@@ -17,7 +17,7 @@ var jsSources = ['components/scripts/think.js',
                  'components/scripts/data.js',
                  'components/scripts/ui.js'];
 
-var sassSources = ['components/sass/*.scss'];
+var sassSources = ['components/sass/*.scss', 'bower_components/**/*.scss'];
 
 var coffeeSources = ['components/coffee/*.coffee'];
 
@@ -30,7 +30,7 @@ gulp.task('lib', function(){
 gulp.task('coffee', function(){
     gulp.src(coffeeSources)
         .pipe(coffee({bare: true}).on('error', gutil.log))
-        .pipe(concat('coffeejs.js'))
+        .pipe(concat('all-angular-scripts.js'))
         .pipe(gulp.dest('js'));
 });
 
@@ -56,7 +56,7 @@ gulp.task('watch', function(){
     gulp.watch(coffeeSources, ['coffee']);
     gulp.watch(jsSources, ['js']);
     gulp.watch(sassSources, ['sass']);
-    gulp.watch( ['js/*.js', '*.html', 'css/*.css']).on('change', livereload.changed)
+    gulp.watch( ['js/*.js', '**/*.html', 'css/*.css']).on('change', livereload.changed)
 
 });
 

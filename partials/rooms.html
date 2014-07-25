@@ -1,0 +1,14 @@
+<div id="what-i-have" ng-controller="RoomListController">
+	<h3>I have {{rooms.length}} rooms for you </h3>
+	
+	<label><input type="radio" name="size" ng-model="size" value="all" ng-checked="{{true}}">All</label> 
+
+	<label><input type="radio" name="size" ng-model="size" ng-change="" value="small">Small</label>
+
+	<label><input type="radio" name="size" ng-model="size" value="large">Large</label> 
+
+
+	<ul>
+		<li ng-repeat="r in rooms | filter: roomCapacityFilter(size)" data-id="room-{{r.name}}"><img ng-src="assets/room_{{r.name | dasherize}}.jpg" /><span>{{r.name}}, on {{r.floor | orderize}} floor, capacity: {{r.capacity}}</span></li>
+	</ul>
+</div>

@@ -1,3 +1,7 @@
+var appModule;
+
+appModule = angular.module('appModule', ['ngRoute']);
+
 var appModule, roomDataController;
 
 appModule = angular.module('imeeting', ['ngRoute']);
