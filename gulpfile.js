@@ -36,7 +36,7 @@ gulp.task('coffee', function(){
 
 gulp.task('js', function(){
     gulp.src(jsSources)
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(concat('frontend.js'))
         .pipe(gulp.dest('js'));
 });
@@ -46,18 +46,18 @@ gulp.task('sass', function(){
         .pipe(sass({style: 'expanded', lineNumbers: true, errLogToConsole: true}))
         .pipe(concat('style.css'))
         .pipe(gulp.dest('css'))
-        .pipe(livereload());
+        // .pipe(livereload());
 })
 
 gulp.task('watch', function(){
-    livereload.listen();
+    // livereload.listen();
 
     gulp.watch(libSources, ['lib']);
     gulp.watch(coffeeSources, ['coffee']);
     gulp.watch(jsSources, ['js']);
     gulp.watch(sassSources, ['sass']);
-    gulp.watch( ['js/*.js', '*.html', 'css/*.css']).on('change', livereload.changed)
-
+    gulp.watch( ['js/*.js', '*.html', 'css/*.css'])/*.on('change', livereload.changed)
+*/
 });
 
 

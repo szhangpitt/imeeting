@@ -2,6 +2,7 @@ $(document).ready(function(e){
 	var think = module.getIntent;
 	var prevUserIntent = {};
 	var prevUserSay = '';
+	
 
 	$('#what-i-say').focus(); 
 
@@ -63,6 +64,7 @@ $(document).ready(function(e){
 	$('#what-i-say').on('keyup', resize);
 	$(window).on('resize', resize);
 
+	
 	function onthefly(userIntent){
 		$wit = $('#what-i-think');
 		var changed = false;
@@ -76,7 +78,9 @@ $(document).ready(function(e){
 			}
 		}
 		if(changed){
-			speakUserIntent(userIntent);
+			// setTimeout(function(){
+			// 	speakUserIntent(userIntent);
+			// }, 30000);
 		}
 	}
 
