@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="imeeting">
+<head>
+	<meta charset="UTF-8">
+	<title>Book a room!</title>
+	<meta name="viewport" content="initial-scale = 1.0,maximum-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/icons/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<h3>What would you like?</h3>
+		<span class="mic-icon icon-uniE600"></span>
+		<textarea id="what-i-say" type="text" rows="1"></textarea>
+		<div id="what-i-think">
+			<section id="action">
+				<h3>You want to</h3>
+				<p>&nbsp;</p>
+			</section>
+			<section id="timeString">
+				<h3>When</h3>
+				<p>&nbsp;</p>
+			</section>
+			<section id="people">
+				<h3>For how many people</h3>
+				<p>&nbsp;</p>
+			</section>
+			<section id="devices">
+				<h3>With these devices</h3>
+				<p>&nbsp;</p>
+			</section>
+		</div>
+		<div id="what-i-have" ng-controller="roomDataController">
+			<h3>I have these rooms for you </h3>
+			<ul>
+				<li ng-repeat="r in rooms" data-id="room-{{r.name | dasherize}}"><img ng-src="assets/room_{{r.name | dasherize}}.jpg" /><span>{{r.name}}, on {{r.floor | orderize}} floor, capacity: {{r.capacity}}</span></li>
+			</ul>
+		</div>
+	</div>
+	
+</body>
+<!-- <script src="https://code.angularjs.org/1.2.19/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.2.19/angular-route.min.js"></script> -->
+<script src="js/lib.js"></script>
+<script src="js/frontend.js"></script>
+<script src="js/coffeejs.js"></script>
+</html>
