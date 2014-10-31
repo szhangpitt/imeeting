@@ -3,6 +3,8 @@ imeeting
 
 A meeting room booking app that listens to you. 
 
+![alt text](https://raw.githubusercontent.com/szhangpitt/imeeting/master/screenshot.png)
+
 
 Deploy
 --------
